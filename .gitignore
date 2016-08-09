@@ -1,0 +1,24 @@
+#.pyc files
+*.pyc
+
+#directory for data
+data
+
+#directory for output files
+output
+
+#directory for pycache
+__pycache__
+
+# Mac
+.DS_Store
+
+# WebStorm
+.idea
+
+# Eclipse
+.project
+.pydevproject
+.settings
+
+
