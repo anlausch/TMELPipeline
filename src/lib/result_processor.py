@@ -14,11 +14,10 @@ class ResultProcessor(object):
     '''
 
 
-    def __init__(self, mode):
+    def __init__(self):
         '''
         Constructor
         '''
-        self.mode = mode
     
     def getTopics(self, a, labels):
         return [labels[int(elem)] for elem in a[1::2]]

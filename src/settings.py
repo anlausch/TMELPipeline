@@ -13,17 +13,15 @@ TOKENIZER = 'tokenizers/punkt/english.pickle'
 NUMBER_DOCS = 10
 RHO_THRESHOLD = 0.15
 
-DB_SCHEMA_NAME = "pipeline"
+DB_SCHEMA_NAME = "tmel"
 DB_USER = "root"
 DB_PASSWORD="root"
 DB_HOST="localhost"
 CREATE_SCHEMA=True
 
 STANFORD_TMT_PATH="C:/Users/D056937/Desktop/Masterthesis/tools/stanford_tmt/stanford_tmt.jar"
-LDA_SCALA_SCRIPT_PATH = "C:/Users/D056937/Desktop/Masterthesis/tools/stanford_tmt/forensic_tm_lda.scala"
-LLDA_SCALA_SCRIPT_PATH = "C:/Users/D056937/Desktop/Masterthesis/tools/stanford_tmt/forensic_tm_llda.scala"
+LLDA_SCRIPT_PATH = "C:/Users/D056937/Desktop/Masterthesis/tools/stanford_tmt/forensic_tm_llda.scala"
 
-MODE="LLDA"
 DATA_IS_INSERTED = False
 
 ROOT="C:\\\\Users\\D056937\\Desktop\\workspaces\\sap\\EmailForensics"

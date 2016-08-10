@@ -24,7 +24,7 @@ def main():
     data_importer = DataImporter(s.DATA_PATH, s.NUMBER_DOCS);
     entity_linker = EntityLinker(s.TAGME_URL, s.TAGME_KEY, s.TOKENIZER, 
                                  s.RHO_THRESHOLD)
-    model_trainer = ModelTrainer(s.STANFORD_TMT_PATH)
+    model_trainer = ModelTrainer(s.STANFORD_TMT_PATH, s.LLDA_SCRIPT_PATH)
     
     if s.DATA_IS_INSERTED == False:
         print("[INFO] Data is not inserted; Running whole pipeline")
@@ -39,21 +39,15 @@ def main():
         database_connection.create_tfidf_materialized_view()
     else:
         print("Data is already inserted; Running offline")
-            
-    if s.MODE=="LDA":
-        print("Running LDA mode")
-        database_connection = DatabaseConnection(s.DB_HOST, s.DB_SCHEMA_NAME, s.DB_USER, s.DB_PASSWORD, False)
-        database_connection.export_emails_csv()
-        model_trainer.train_lda_model(s.LDA_SCALA_SCRIPT_PATH)
-    elif s.MODE =="LLDA":
-        print("Running LLDA mode")
-        #database_connection.prepare_entity_title()
-        database_connection = DatabaseConnection(s.DB_HOST ,s.DB_SCHEMA_NAME, s.DB_USER, s.DB_PASSWORD, False)
-        database_connection.export_top_tfidf_entities_per_document_csv(5)
-        model_trainer.train_llda_model(s.LLDA_SCALA_SCRIPT_PATH)
-        result_processor = ResultProcessor(s.MODE)
-        result_processor.link_document_topic(database_connection)
-        result_processor.link_topic_term(database_connection)
+    
+    print("Running LLDA mode")
+    #database_connection.prepare_entity_title()
+    database_connection = DatabaseConnection(s.DB_HOST ,s.DB_SCHEMA_NAME, s.DB_USER, s.DB_PASSWORD, False)
+    database_connection.export_top_tfidf_entities_per_document_csv(5)
+    model_trainer.train_llda_model()
+    result_processor = ResultProcessor()
+    result_processor.link_document_topic(database_connection)
+    result_processor.link_topic_term(database_connection)
 
 
 if __name__ == "__main__":
