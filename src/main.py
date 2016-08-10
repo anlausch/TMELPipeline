@@ -30,7 +30,7 @@ def main():
         data = entity_linker.gen_build_snippets(data)
         data = entity_linker.gen_tag_snippets(data)
         database_connection.insert_data(data)
-        print(list(data))
+        print("[INFO] Data inserted")
         database_connection.prepare_document_content()
         database_connection.create_tfidf_materialized_view()
     else:
@@ -38,7 +38,9 @@ def main():
 
     database_connection = DatabaseConnection(s.DB_HOST ,s.DB_SCHEMA_NAME, s.DB_USER, s.DB_PASSWORD, False)
     database_connection.export_top_tfidf_entities_per_document_csv(5)
+    print("[INFO] Data exported")
     model_trainer.train_llda_model()
+    print("[INFO] L-LDA applied")
     result_processor = ResultProcessor()
     result_processor.link_document_topic(database_connection)
     result_processor.link_topic_term(database_connection)
