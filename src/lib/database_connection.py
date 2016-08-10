@@ -68,21 +68,21 @@ class DatabaseConnection(object):
         Inserts a single entity into the db in case it is not already inserted
         @param {String} title: title of the entity
         '''
-        query_entity = ("SELECT count(*) FROM entity WHERE title =%{title}s")
+        query_entity = ("SELECT count(*) FROM entity WHERE title =%(title)s")
         data_entity = {"title": title}
-        self.cursor.execute(query_entity, data_entity)
-        for count in self.cursor:
-            if count[0] > 0:
-                row_no = -1
-                break;
-            else:
-                try:
-                    insert_entity = ("INSERT INTO Entity (title) VALUES (%{title}s)")
+        row_no = -1
+        try:
+            self.cursor.execute(query_entity, data_entity)
+            for count in self.cursor:
+                if count[0] > 0:
+                    break;
+                else:
+                    insert_entity = ("INSERT INTO Entity (title) VALUES (%(title)s)")
                     self.cursor.execute(insert_entity, data_entity)
                     row_no = self.cursor.lastrowid
                     self.cnx.commit()
-                except Exception as e:
-                    print("[ERROR] %s" % e)
+        except Exception as e:
+            print("[ERROR] %s" % e)
         return row_no
     
     
@@ -195,7 +195,7 @@ class DatabaseConnection(object):
                       "FROM mv_tfidf "
                       "ORDER BY documentId, tfIdf DESC "
                       ") ranked "
-                      "WHERE doc_rank <= %{no_entitites}s) as top_tfidf_t GROUP BY documentId) as top_tfidf_concat_t")
+                      "WHERE doc_rank <= %(no_entities)s) as top_tfidf_t GROUP BY documentId) as top_tfidf_concat_t")
             export_data = {"no_entities" : no_entities};
             self.cursor.execute(export_stmt, export_data)
             self.cnx.commit()
