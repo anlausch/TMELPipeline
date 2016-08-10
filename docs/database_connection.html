@@ -1,0 +1,111 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module database_connection</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>database_connection</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/d056937/desktop/workspaces/sap/tmelpipeline/src/lib/database_connection.py">c:\users\d056937\desktop\workspaces\sap\tmelpipeline\src\lib\database_connection.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;29.03.2016<br>
+&nbsp;<br>
+@author:&nbsp;anlausch</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="codecs.html">codecs</a><br>
+</td><td width="25%" valign=top><a href="mysql.connector.errorcode.html">mysql.connector.errorcode</a><br>
+</td><td width="25%" valign=top><a href="mysql.html">mysql</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="database_connection.html#DatabaseConnection">DatabaseConnection</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DatabaseConnection">class <strong>DatabaseConnection</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;manages&nbsp;connection&nbsp;to&nbsp;database<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="DatabaseConnection-__init__"><strong>__init__</strong></a>(self, host, database, user, password, create_schema)</dt><dd><tt>Constructor;<br>
+Check&nbsp;whether&nbsp;schema&nbsp;setup&nbsp;is&nbsp;required&nbsp;or&nbsp;not<br>
+@param&nbsp;{String}&nbsp;host:&nbsp;host&nbsp;address<br>
+@param&nbsp;{String}&nbsp;database:&nbsp;schema&nbsp;name<br>
+@param&nbsp;{String}&nbsp;user:&nbsp;user&nbsp;name<br>
+@param&nbsp;{String}&nbsp;password:&nbsp;password<br>
+@param&nbsp;{Boolean}&nbsp;create_schema:&nbsp;indicates&nbsp;whether&nbsp;the&nbsp;schema&nbsp;shall&nbsp;be&nbsp;created&nbsp;or&nbsp;not</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-create_schema"><strong>create_schema</strong></a>(self, schema_name)</dt><dd><tt>Creates&nbsp;the&nbsp;database&nbsp;schema&nbsp;with&nbsp;a&nbsp;given&nbsp;name<br>
+@param&nbsp;{String}&nbsp;schema_name,&nbsp;name&nbsp;of&nbsp;the&nbsp;schema</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-create_tfidf_materialized_view"><strong>create_tfidf_materialized_view</strong></a>(self)</dt><dd><tt>Calculates&nbsp;tf-idf&nbsp;values&nbsp;and&nbsp;stores&nbsp;it&nbsp;in&nbsp;a&nbsp;new&nbsp;table&nbsp;called&nbsp;mv_tfidf</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-exec_sql_file"><strong>exec_sql_file</strong></a>(self, sql_file)</dt><dd><tt>Executes&nbsp;an&nbsp;arbitrary&nbsp;.sql&nbsp;file<br>
+@param&nbsp;{String}&nbsp;sql_file:&nbsp;spath&nbsp;to&nbsp;the&nbsp;.sql&nbsp;file&nbsp;that&nbsp;shall&nbsp;be&nbsp;executed</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-export_top_tfidf_entities_per_document_csv"><strong>export_top_tfidf_entities_per_document_csv</strong></a>(self, no_entities)</dt><dd><tt>Exports&nbsp;the&nbsp;top&nbsp;n&nbsp;entites&nbsp;ranked&nbsp;by&nbsp;tf-idf&nbsp;into&nbsp;a&nbsp;.csv&nbsp;file&nbsp;according<br>
+to&nbsp;the&nbsp;format&nbsp;expected&nbsp;by&nbsp;stanford&nbsp;tmt&nbsp;llda<br>
+@param&nbsp;{Integer}&nbsp;no_entities:&nbsp;number&nbsp;of&nbsp;entities&nbsp;that&nbsp;shall&nbsp;be&nbsp;exported</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-insert_data"><strong>insert_data</strong></a>(self, data)</dt><dd><tt>Inserts&nbsp;a&nbsp;sequence&nbsp;of&nbsp;documents&nbsp;into&nbsp;the&nbsp;db<br>
+@param&nbsp;{Generator}&nbsp;data:&nbsp;sequence&nbsp;of&nbsp;docs</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-insert_doc"><strong>insert_doc</strong></a>(self, doc_id, path, content)</dt><dd><tt>Inserts&nbsp;a&nbsp;single&nbsp;document&nbsp;into&nbsp;the&nbsp;db<br>
+@param&nbsp;{String}&nbsp;doc_id:&nbsp;unique&nbsp;identifier&nbsp;of&nbsp;the&nbsp;document<br>
+@param&nbsp;{String}&nbsp;path:&nbsp;path&nbsp;to&nbsp;the&nbsp;document<br>
+@param&nbsp;{String}&nbsp;content:&nbsp;textual&nbsp;content&nbsp;of&nbsp;the&nbsp;document</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-insert_document_topic_distribution"><strong>insert_document_topic_distribution</strong></a>(self, data)</dt><dd><tt>Inserts&nbsp;document&nbsp;topic&nbsp;distribution&nbsp;into&nbsp;the&nbsp;db<br>
+@param&nbsp;{List}&nbsp;data:&nbsp;sequence&nbsp;of&nbsp;document-topic&nbsp;proportions</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-insert_entity"><strong>insert_entity</strong></a>(self, title)</dt><dd><tt>Inserts&nbsp;a&nbsp;single&nbsp;entity&nbsp;into&nbsp;the&nbsp;db&nbsp;in&nbsp;case&nbsp;it&nbsp;is&nbsp;not&nbsp;already&nbsp;inserted<br>
+@param&nbsp;{String}&nbsp;title:&nbsp;title&nbsp;of&nbsp;the&nbsp;entity</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-insert_snippet"><strong>insert_snippet</strong></a>(self, content, doc_id)</dt><dd><tt>Inserts&nbsp;a&nbsp;single&nbsp;snippet&nbsp;into&nbsp;the&nbsp;db<br>
+@param&nbsp;{String}&nbsp;content:&nbsp;textual&nbsp;content&nbsp;of&nbsp;the&nbsp;snippet<br>
+@param&nbsp;{String}&nbsp;doc_id:&nbsp;identifier&nbsp;of&nbsp;the&nbsp;document&nbsp;the&nbsp;snippet&nbsp;belongs&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-insert_tag"><strong>insert_tag</strong></a>(self, snippet_id, entity_title, spot, rho)</dt><dd><tt>Inserts&nbsp;a&nbsp;single&nbsp;tag&nbsp;into&nbsp;the&nbsp;db<br>
+@param&nbsp;{String}&nbsp;snippet_id:&nbsp;identifier&nbsp;of&nbsp;the&nbsp;snippet&nbsp;in&nbsp;which&nbsp;the&nbsp;entity&nbsp;was&nbsp;found<br>
+@param&nbsp;{String}&nbsp;entity_title:&nbsp;title&nbsp;of&nbsp;the&nbsp;entity&nbsp;found<br>
+@param&nbsp;{String}&nbsp;spot:&nbsp;spot&nbsp;that&nbsp;was&nbsp;identified<br>
+@param&nbsp;{Double}&nbsp;rho:&nbsp;rho&nbsp;value&nbsp;of&nbsp;the&nbsp;tag</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-insert_topic"><strong>insert_topic</strong></a>(self, record)</dt><dd><tt>Inserts&nbsp;a&nbsp;single&nbsp;topic&nbsp;entry&nbsp;into&nbsp;the&nbsp;db<br>
+@param&nbsp;{Dict}&nbsp;record:&nbsp;record&nbsp;that&nbsp;shall&nbsp;be&nbsp;inserted</tt></dd></dl>
+
+<dl><dt><a name="DatabaseConnection-prepare_document_content"><strong>prepare_document_content</strong></a>(self)</dt><dd><tt>Prepares&nbsp;the&nbsp;document&nbsp;content&nbsp;for&nbsp;proper&nbsp;output&nbsp;in&nbsp;.csv&nbsp;format&nbsp;such&nbsp;that<br>
+the&nbsp;.csv&nbsp;file&nbsp;can&nbsp;serve&nbsp;as&nbsp;input&nbsp;to&nbsp;llda</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

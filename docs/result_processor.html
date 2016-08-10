@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module result_processor</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>result_processor</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/d056937/desktop/workspaces/sap/tmelpipeline/src/lib/result_processor.py">c:\users\d056937\desktop\workspaces\sap\tmelpipeline\src\lib\result_processor.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;25.04.2016<br>
+&nbsp;<br>
+@author:&nbsp;anlausch</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="codecs.html">codecs</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="result_processor.html#ResultProcessor">ResultProcessor</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ResultProcessor">class <strong>ResultProcessor</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;provides&nbsp;post&nbsp;processing&nbsp;of&nbsp;the&nbsp;topic&nbsp;modeling&nbsp;output<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ResultProcessor-getProportions"><strong>getProportions</strong></a>(self, line_list)</dt><dd><tt>Returns&nbsp;every&nbsp;second&nbsp;element&nbsp;(=proportion)&nbsp;in&nbsp;a&nbsp;given&nbsp;list&nbsp;starting&nbsp;by&nbsp;2<br>
+@param&nbsp;{List}&nbsp;line_list,&nbsp;list&nbsp;that&nbsp;contains&nbsp;topic&nbsp;indices&nbsp;and&nbsp;proportions</tt></dd></dl>
+
+<dl><dt><a name="ResultProcessor-getTopics"><strong>getTopics</strong></a>(self, line_list, label_list)</dt><dd><tt>Returns&nbsp;the&nbsp;corresponding&nbsp;label&nbsp;of&nbsp;every&nbsp;second&nbsp;element&nbsp;(=topic)&nbsp;in&nbsp;a&nbsp;given&nbsp;list&nbsp;starting&nbsp;by&nbsp;1<br>
+@param&nbsp;{List}&nbsp;line_list,&nbsp;list&nbsp;that&nbsp;contains&nbsp;topic&nbsp;indices&nbsp;and&nbsp;proportions<br>
+@param&nbsp;{List}&nbsp;label_list,&nbsp;label&nbsp;index</tt></dd></dl>
+
+<dl><dt><a name="ResultProcessor-link_document_topic"><strong>link_document_topic</strong></a>(self, database_connection)</dt><dd><tt>Links&nbsp;documents&nbsp;and&nbsp;topic&nbsp;labels&nbsp;by&nbsp;processing&nbsp;the&nbsp;label-index.txt&nbsp;<br>
+and&nbsp;document-topic-distributions.csv&nbsp;output&nbsp;files&nbsp;of&nbsp;the&nbsp;stanford&nbsp;tmt<br>
+and&nbsp;inserts&nbsp;the&nbsp;information&nbsp;into&nbsp;the&nbsp;database<br>
+@param&nbsp;{DatabaseConnection}&nbsp;database_connection,&nbsp;connection&nbsp;to&nbsp;the&nbsp;db</tt></dd></dl>
+
+<dl><dt><a name="ResultProcessor-link_topic_term"><strong>link_topic_term</strong></a>(self, database_connection)</dt><dd><tt>Links&nbsp;topics&nbsp;(=entities)&nbsp;and&nbsp;terms&nbsp;by&nbsp;processing&nbsp;the&nbsp;summary.txt&nbsp;output&nbsp;file&nbsp;<br>
+of&nbsp;the&nbsp;stanford&nbsp;tmt&nbsp;and&nbsp;inserts&nbsp;the&nbsp;information&nbsp;into&nbsp;the&nbsp;database<br>
+@param&nbsp;{DatabaseConnection}&nbsp;database_connection,&nbsp;connection&nbsp;to&nbsp;the&nbsp;db</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

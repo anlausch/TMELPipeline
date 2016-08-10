@@ -1,0 +1,79 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module entity_linker</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>entity_linker</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/d056937/desktop/workspaces/sap/tmelpipeline/src/lib/entity_linker.py">c:\users\d056937\desktop\workspaces\sap\tmelpipeline\src\lib\entity_linker.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;29.03.2016<br>
+&nbsp;<br>
+@author:&nbsp;anlausch</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="nltk.html">nltk</a><br>
+</td><td width="25%" valign=top><a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="entity_linker.html#EntityLinker">EntityLinker</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="EntityLinker">class <strong>EntityLinker</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;is&nbsp;for&nbsp;tagging&nbsp;all&nbsp;documents&nbsp;<br>
+with&nbsp;wikipedia&nbsp;entities&nbsp;found&nbsp;in&nbsp;the&nbsp;text<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="EntityLinker-__init__"><strong>__init__</strong></a>(self, url, key, tokenizer, rho_threshold)</dt><dd><tt>Constructor<br>
+@param&nbsp;{String}&nbsp;url,&nbsp;url&nbsp;to&nbsp;tagme&nbsp;api<br>
+@param&nbsp;{String}&nbsp;key,&nbsp;authorization&nbsp;token<br>
+@param&nbsp;{String}&nbsp;tokenizer,&nbsp;path&nbsp;to&nbsp;tokenizer&nbsp;in&nbsp;a&nbsp;certain&nbsp;language<br>
+@param&nbsp;{Double}&nbsp;rho_threshold,&nbsp;threshold&nbsp;for&nbsp;rho</tt></dd></dl>
+
+<dl><dt><a name="EntityLinker-gen_build_snippets"><strong>gen_build_snippets</strong></a>(self, data)</dt><dd><tt>Generator&nbsp;that&nbsp;builds&nbsp;snippets&nbsp;out&nbsp;of&nbsp;the&nbsp;sentences&nbsp;in&nbsp;a&nbsp;doc,<br>
+such&nbsp;that&nbsp;the&nbsp;api&nbsp;can&nbsp;handle&nbsp;the&nbsp;amount&nbsp;of&nbsp;data<br>
+@param&nbsp;{Generator}&nbsp;data,&nbsp;sequence&nbsp;of&nbsp;docs</tt></dd></dl>
+
+<dl><dt><a name="EntityLinker-gen_split_into_sentences"><strong>gen_split_into_sentences</strong></a>(self, data)</dt><dd><tt>Generator&nbsp;that&nbsp;uses&nbsp;nltk&nbsp;for&nbsp;splitting&nbsp;textual&nbsp;data&nbsp;into&nbsp;sentences<br>
+@param&nbsp;{Generator}&nbsp;data,&nbsp;sequence&nbsp;of&nbsp;docs</tt></dd></dl>
+
+<dl><dt><a name="EntityLinker-gen_tag_snippets"><strong>gen_tag_snippets</strong></a>(self, data)</dt><dd><tt>Generator&nbsp;that&nbsp;sends&nbsp;textual&nbsp;snippets&nbsp;to&nbsp;the&nbsp;api&nbsp;of&nbsp;the&nbsp;entity&nbsp;linker<br>
+and&nbsp;adds&nbsp;the&nbsp;result&nbsp;to&nbsp;the&nbsp;data&nbsp;structure&nbsp;if&nbsp;the&nbsp;rho&nbsp;is&nbsp;above&nbsp;a&nbsp;given<br>
+threshold<br>
+@param&nbsp;{Generator}&nbsp;data,&nbsp;sequence&nbsp;of&nbsp;docs</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
