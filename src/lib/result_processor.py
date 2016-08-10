@@ -4,18 +4,12 @@ Created on 25.04.2016
 @author: anlausch
 '''
 import codecs
-import settings as s
 
 
 class ResultProcessor(object):
     '''
     This class provides post processing of the topic modeling output
     '''
-
-    def __init__(self):
-        '''
-        Constructor
-        '''
     
     def getTopics(self, line_list, label_list):
         '''
@@ -41,8 +35,8 @@ class ResultProcessor(object):
         and inserts the information into the database
         @param {DatabaseConnection} database_connection, connection to the db
         '''
-        label_index = [line.replace("\n","") for line in open(s.ROOT + "\\output\\llda-output\\01000\\label-index.txt").readlines()]
-        with open(s.ROOT + "\\output\\llda-output\\document-topic-distributions.csv", "r") as f:
+        label_index = [line.replace("\n","") for line in open(".\\..\\..\\output\\llda-output\\01000\\label-index.txt").readlines()]
+        with open(".\\..\\..\\output\\llda-output\\document-topic-distributions.csv", "r") as f:
             for line in f:
                 line_array = line.split(",")
                 document = line_array[0]
