@@ -31,7 +31,7 @@ def main():
         data = entity_linker.gen_tag_snippets(data)
         database_connection.insert_data(data)
         print(list(data))
-        database_connection.prepare_email_body()
+        database_connection.prepare_document_content()
         database_connection.create_tfidf_materialized_view()
     else:
         print("[INFO] Data is already inserted; Running offline")

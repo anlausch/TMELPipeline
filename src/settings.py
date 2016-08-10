@@ -17,6 +17,6 @@ DB_PASSWORD="root"
 DB_HOST="localhost"
 CREATE_SCHEMA=True
 STANFORD_TMT_PATH="C:/Users/D056937/Desktop/Masterthesis/tools/stanford_tmt/stanford_tmt.jar"
-LLDA_SCRIPT_PATH = "C:/Users/D056937/Desktop/Masterthesis/tools/stanford_tmt/forensic_tm_llda.scala"
+LLDA_SCRIPT_PATH = "./scala/llda.scala"
 DATA_IS_INSERTED = False
 ROOT="C:\\\\Users\\D056937\\Desktop\\workspaces\\sap\\EmailForensics"
