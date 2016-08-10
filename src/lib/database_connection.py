@@ -238,7 +238,7 @@ class DatabaseConnection(object):
     def exec_sql_file(self, sql_file):
         '''
         Executes an arbitrary .sql file
-        @param {String} sql_file: spath to the .sql file that shall be executed
+        @param {String} sql_file: path to the .sql file that shall be executed
         '''
         print ("[INFO] Executing SQL script file: '%s'" % (sql_file))
         statement = ""
