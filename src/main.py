@@ -9,23 +9,19 @@ the intended program flow
 import settings as s
 from lib.data_importer import DataImporter # @UnresolvedImport
 from lib.entity_linker import EntityLinker  # @UnresolvedImport
-import sys
-#from lib.stats_engine import StatsEngine  # @UnresolvedImport
-import time
 from lib.database_connection import DatabaseConnection
 from lib.model_trainer import ModelTrainer
-from lib.result_processor import ResultProcessor 
+from lib.result_processor import ResultProcessor
+import time
 
 
 def main():
-    print("Encoding:\n\n %s" % sys.stdout.encoding)
-    print("\n\n\n")
     # create instances
     data_importer = DataImporter(s.DATA_PATH, s.NUMBER_DOCS);
-    entity_linker = EntityLinker(s.TAGME_URL, s.TAGME_KEY, s.TOKENIZER, 
-                                 s.RHO_THRESHOLD)
+    entity_linker = EntityLinker(s.TAGME_URL, s.TAGME_KEY, s.TOKENIZER, s.RHO_THRESHOLD)
     model_trainer = ModelTrainer(s.STANFORD_TMT_PATH, s.LLDA_SCRIPT_PATH)
     
+    # if data is not inserted into the db yet, the whole pipeline is executed
     if s.DATA_IS_INSERTED == False:
         print("[INFO] Data is not inserted; Running whole pipeline")
         database_connection = DatabaseConnection(s.DB_HOST, s.DB_SCHEMA_NAME, s.DB_USER, s.DB_PASSWORD, s.CREATE_SCHEMA)
@@ -38,10 +34,8 @@ def main():
         database_connection.prepare_email_body()
         database_connection.create_tfidf_materialized_view()
     else:
-        print("Data is already inserted; Running offline")
-    
-    print("Running LLDA mode")
-    #database_connection.prepare_entity_title()
+        print("[INFO] Data is already inserted; Running offline")
+
     database_connection = DatabaseConnection(s.DB_HOST ,s.DB_SCHEMA_NAME, s.DB_USER, s.DB_PASSWORD, False)
     database_connection.export_top_tfidf_entities_per_document_csv(5)
     model_trainer.train_llda_model()
@@ -51,6 +45,7 @@ def main():
 
 
 if __name__ == "__main__":
+    print("[INFO] Pipeline started")
     start_time = time.time()
     main()
-    print("--- %s seconds ---" % (time.time() - start_time))
+    print("[INFO] Total processing time: %s seconds" % (time.time() - start_time))
