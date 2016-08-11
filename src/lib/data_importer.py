@@ -35,7 +35,7 @@ class DataImporter(object):
                     content = codecs.open(path, "r", "utf-8", 'ignore').read()
                     doc_id = f
                     # insert content into db
-                    yield dict([("id", doc_id),("path", path),("content", content)])
+                    yield dict([("id", doc_id),("path", path),("content", content), ('original', content)])
                     data[doc_id] = "";
                 elif len(data) == self.number_docs:
                     return

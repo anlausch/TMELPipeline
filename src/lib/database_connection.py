@@ -47,15 +47,15 @@ class DatabaseConnection(object):
                 print("[ERROR] %s" % e)
             
             
-    def insert_doc(self, doc_id, path, content):
+    def insert_doc(self, doc_id, path, content, original):
         '''
         Inserts a single document into the db
         @param {String} doc_id: unique identifier of the document
         @param {String} path: path to the document
         @param {String} content: textual content of the document
         '''
-        insert_doc = ("INSERT INTO document (id, path, content) VALUES (%s, %s, %s)")
-        data_doc = (doc_id, path, content)
+        insert_doc = ("INSERT INTO document (id, path, content, original) VALUES (%s, %s, %s, %s)")
+        data_doc = (doc_id, path, content, original)
         try:
             self.cursor.execute(insert_doc, data_doc)
             self.cnx.commit()
@@ -113,7 +113,7 @@ class DatabaseConnection(object):
                               "(Select (tf * LOG(noDocs / df)) as tfIdf, "
                               "LOG(noDocs / df) as idf, noDocs, "
                               "df_t.title as entityTitle, "
-                              "df, tf, tf_t.id as documentId, tf_t.content as documentContent " 
+                              "df, tf, tf_t.id as documentId, tf_t.content as documentContent, tf_t.original as documentOriginal " 
                               "from (Select count(*) as noDocs from document) as noDocs_t , "
                               "(Select t.title, count(*) as df " 
                               "from (Select tag.entityTitle as title, document.id " 
@@ -122,7 +122,7 @@ class DatabaseConnection(object):
                               "document.id = snippet.documentId and snippet.id = tag.snippetId "
                               "group by document.id, tag.entityTitle) "
                               "as t group by t.title) as df_t, "
-                              "(SELECT document.id, document.content, tag.entityTitle as title, count(*) as tf FROM document, snippet, tag " 
+                              "(SELECT document.id, document.content, document.original, tag.entityTitle as title, count(*) as tf FROM document, snippet, tag " 
                               "where document.id = snippet.documentId and snippet.id = tag.snippetId "
                               "group by tag.entityTitle, documentId) as tf_t "
                               "where df_t.title = tf_t.title "
@@ -209,7 +209,7 @@ class DatabaseConnection(object):
         @param {Generator} data: sequence of docs
         '''
         for doc in data:
-            self.insert_doc(doc['id'], doc['path'], doc['content'])
+            self.insert_doc(doc['id'], doc['path'], doc['content'], doc['original'])
             for snippet in doc['snippets']:
                 id_snippet = self.insert_snippet(snippet['raw_snippet'], doc['id'])
                 for tag in snippet['tagged_snippet']:
