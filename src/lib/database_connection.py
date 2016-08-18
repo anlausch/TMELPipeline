@@ -182,6 +182,7 @@ class DatabaseConnection(object):
             self.cursor.execute(variables)
             self.cnx.commit()
             export_stmt = ("SELECT * INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/data.csv' "
+                      "CHARACTER SET utf8 "
                       "FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"' " 
                       "ESCAPED BY '\\\\' "
                       "LINES TERMINATED BY '\\r\\n' "
