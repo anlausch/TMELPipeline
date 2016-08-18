@@ -36,7 +36,7 @@ class ResultProcessor(object):
         @param {DatabaseConnection} database_connection, connection to the db
         '''
         label_index = [line.replace("\n","") for line in open(".\\..\\output\\llda-output\\01000\\label-index.txt").readlines()]
-        with open(".\\..\\output\\llda-output\\document-topic-distributions.csv", "r") as f:
+        with codecs.open(".\\..\\output\\llda-output\\document-topic-distributions.csv", "r", "utf-8", "ignore") as f:
             for line in f:
                 line_array = line.split(",")
                 document = line_array[0]
@@ -52,7 +52,7 @@ class ResultProcessor(object):
         of the stanford tmt and inserts the information into the database
         @param {DatabaseConnection} database_connection, connection to the db
         '''
-        file_lines = codecs.open(".\\..\\output\\llda-output\\01000\\summary.txt", "r", "utf-8").readlines()
+        file_lines = codecs.open(".\\..\\output\\llda-output\\01000\\summary.txt", "r", "utf-8", "ignore").readlines()
         is_label = True;
         for line in file_lines:
             if is_label == True and (line != "\n" and line != "\r\n"):

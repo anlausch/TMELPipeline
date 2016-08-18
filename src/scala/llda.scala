@@ -36,7 +36,7 @@ val labels = {
   Column(2) ~>                           // take column two, the year
   TokenizeWith(WhitespaceTokenizer()) ~> // turns label field into an array
   TermCounter() ~>                       // collect label counts
-  TermMinimumDocumentCountFilter(10)     // filter labels in < 10 docs
+  TermMinimumDocumentCountFilter(0)     // filter labels in < 0 docs
 }
 
 val dataset = LabeledLDADataset(text, labels);
