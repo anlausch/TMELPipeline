@@ -9,9 +9,9 @@ the intended program flow
 import settings as s
 from lib.data_importer import DataImporter # @UnresolvedImport
 from lib.entity_linker import EntityLinker  # @UnresolvedImport
-from lib.database_connection import DatabaseConnection
-from lib.model_trainer import ModelTrainer
-from lib.result_processor import ResultProcessor
+from lib.database_connection import DatabaseConnection # @UnresolvedImport
+from lib.model_trainer import ModelTrainer # @UnresolvedImport
+from lib.result_processor import ResultProcessor # @UnresolvedImport
 import time
 
 
@@ -37,7 +37,7 @@ def main():
         print("[INFO] Data is already inserted; Running offline")
 
     database_connection = DatabaseConnection(s.DB_HOST ,s.DB_SCHEMA_NAME, s.DB_USER, s.DB_PASSWORD, False)
-    database_connection.export_top_tfidf_entities_per_document_csv(5)
+    database_connection.export_top_tfidf_entities_per_document_csv(4)
     print("[INFO] Data exported")
     model_trainer.train_llda_model()
     print("[INFO] L-LDA applied")
