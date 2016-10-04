@@ -41,9 +41,9 @@ def main():
     print("[INFO] Data exported")
     model_trainer.train_llda_model()
     print("[INFO] L-LDA applied")
-    result_processor = ResultProcessor()
-    result_processor.link_document_topic(database_connection)
-    result_processor.link_topic_term(database_connection)
+    result_processor = ResultProcessor(database_connection)
+    result_processor.link_document_topic()
+    result_processor.link_topic_term()
 
 
 if __name__ == "__main__":
