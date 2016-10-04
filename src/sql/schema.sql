@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `TopicLabelAnnotation` (
   `IsOriginal` TINYINT(1) NULL,
   `IsSelected` TINYINT(1) NULL,
   `DocumentId` VARCHAR(45) NOT NULL,
-  `Mode` VARCHAR(45) NULL,
+  `Mode` ENUM('label_mode', 'term_mode'),
   PRIMARY KEY (`UserName`, `EntityTitle`, `Timestamp`, `DocumentId`),
   INDEX `fk_TopiLabelAnnotation_Entity1_idx` (`EntityTitle` ASC),
   INDEX `fk_TopiLabelAnnotation_Email1_idx` (`DocumentId` ASC),
