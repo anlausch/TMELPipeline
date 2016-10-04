@@ -116,11 +116,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `User` ;
 
 CREATE TABLE IF NOT EXISTS `User` (
-  `Username` VARCHAR(127) NOT NULL,
+  `Name` VARCHAR(127) NOT NULL,
   `PwdHash` VARCHAR(256) NOT NULL,
   `PwdSalt` VARCHAR(64) NOT NULL,
-  UNIQUE INDEX `Username_UNIQUE` (`Username` ASC),
-  PRIMARY KEY (`Username`))
+  UNIQUE INDEX `Name_UNIQUE` (`Name` ASC),
+  PRIMARY KEY (`Name`))
 ENGINE = InnoDB;
 
 
@@ -133,11 +133,11 @@ CREATE TABLE IF NOT EXISTS `EntitySelectionAnnotation` (
   `DocumentId` VARCHAR(45) NOT NULL,
   `EntityTitle` VARCHAR(200) NOT NULL,
   `Rank` VARCHAR(45) NULL,
-  `UserUsername` VARCHAR(127) NOT NULL,
+  `UserName` VARCHAR(127) NOT NULL,
   `Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`DocumentId`, `EntityTitle`, `UserUsername`, `Timestamp`),
+  PRIMARY KEY (`DocumentId`, `EntityTitle`, `UserName`, `Timestamp`),
   INDEX `fk_Annotation_Entity1_idx` (`EntityTitle` ASC),
-  INDEX `fk_Annotation_User1_idx` (`UserUsername` ASC),
+  INDEX `fk_Annotation_User1_idx` (`UserName` ASC),
   CONSTRAINT `fk_Annotation_Email1`
     FOREIGN KEY (`DocumentId`)
     REFERENCES `Document` (`Id`)
@@ -149,8 +149,8 @@ CREATE TABLE IF NOT EXISTS `EntitySelectionAnnotation` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Annotation_User1`
-    FOREIGN KEY (`UserUsername`)
-    REFERENCES `User` (`Username`)
+    FOREIGN KEY (`UserName`)
+    REFERENCES `User` (`Name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -181,19 +181,19 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `TopicLabelAnnotation` ;
 
 CREATE TABLE IF NOT EXISTS `TopicLabelAnnotation` (
-  `UserUsername` VARCHAR(127) NOT NULL,
+  `UserName` VARCHAR(127) NOT NULL,
   `EntityTitle` VARCHAR(200) NOT NULL,
   `Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IsOriginal` TINYINT(1) NULL,
   `IsSelected` TINYINT(1) NULL,
   `DocumentId` VARCHAR(45) NOT NULL,
   `Mode` VARCHAR(45) NULL,
-  PRIMARY KEY (`UserUsername`, `EntityTitle`, `Timestamp`, `DocumentId`),
+  PRIMARY KEY (`UserName`, `EntityTitle`, `Timestamp`, `DocumentId`),
   INDEX `fk_TopiLabelAnnotation_Entity1_idx` (`EntityTitle` ASC),
   INDEX `fk_TopiLabelAnnotation_Email1_idx` (`DocumentId` ASC),
   CONSTRAINT `fk_TopiLabelAnnotation_User1`
-    FOREIGN KEY (`UserUsername`)
-    REFERENCES `User` (`Username`)
+    FOREIGN KEY (`UserName`)
+    REFERENCES `User` (`Name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_TopiLabelAnnotation_Entity1`
