@@ -1,6 +1,3 @@
-![](http://www.uni-mannheim.de/1/english/config/uni_ma_logo_engl.gif)
-![](http://dws.informatik.uni-mannheim.de/typo3temp/GB/0d8f4470ab.gif)
-
 # TMELPipeline
 This project is a Python implementation of Entity-based Topic Modeling, a new corpus exploration method. The tool identifies a series of descriptive labels for each document in an ontology and generates for each label a topic, which is easy to
 interpret as it is directly linked to a knowledge base.
@@ -22,3 +19,5 @@ Installation instructions:
 
 This project was part of the research that was done on Entity-based Topic Modeling by the Data and Web Science Research Group of the University of Mannheim. More information about our work can be found here:
 http://dws.informatik.uni-mannheim.de/en/home/.
+
+![](http://www.uni-mannheim.de/1/english/config/uni_ma_logo_engl.gif)
