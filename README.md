@@ -20,7 +20,9 @@ Installation instructions:
 This project was part of the research that was done on Entity-based Topic Modeling by the Data and Web Science Research Group of the University of Mannheim. More information about our work can be found here:
 http://dws.informatik.uni-mannheim.de/en/home/.
 
-Please do not forget to cite our work when using it in your project:
-Anne Lauscher, Federico Nanni, Pablo Ruiz Fabo and Simone Paolo Ponzetto Entities as Topic Labels: Combining Entity Linking and Labeled LDA to Improve Topic Interpretability and Evaluability. In: Italian Journal of Computational Linguistics 2(2), pp. 67-88, 2016.
+
+*Please do not forget to cite our work when using it in your project:*
+
+Anne Lauscher, Federico Nanni, Pablo Ruiz Fabo and Simone Paolo Ponzetto (2016): [Entities as Topic Labels: Combining Entity Linking and Labeled LDA to Improve Topic Interpretability and Evaluability](http://www.ai-lc.it/IJCoL/v2n2/4-lauscher_et_al.pdf). In: Italian Journal of Computational Linguistics 2(2), pp. 67-88.
 
 ![](http://www.uni-mannheim.de/1/english/config/uni_ma_logo_engl.gif)
